@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+    CQRS\:
+        resource: '../../../src/'
+        exclude:
+            - '../../../src/DependencyInjection/'
+            - '../../../src/Entity/'
+            - '../../../src/Kernel.php'
+            - '../../../src/Tests/'
+
+    CQRS\Routing\CommandsLoader:
+        tags: [routing.loader]

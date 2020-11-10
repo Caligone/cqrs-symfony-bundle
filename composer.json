@@ -1,0 +1,24 @@
+{
+    "name": "caligone/symfony-cqrs",
+    "type": "symfony-bundle",
+    "description": "Symfony CQRS Bundle",
+    "autoload": {
+        "psr-4": {
+            "CQRS\\": "src/"
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "license": "MIT",
+    "authors": [{
+        "name": "Caligone",
+        "email": "hello@calig.one"
+    }],
+    "require": {
+        "symfony/http-kernel": "^5.1",
+        "symfony/routing": "^5.1",
+        "doctrine/annotations": "^1.11",
+        "symfony/dependency-injection": "^5.1"
+    }
+}

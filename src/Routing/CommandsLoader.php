@@ -35,11 +35,25 @@ class CommandsLoader extends Loader
             if (!$commandAnnotation) {
                 continue;
             }
-            $defaults = ['_controller' => 'CQRS\Controller\CommandController::performCommand'];
-            $route = new Route($commandAnnotation->path, $defaults);
+            $defaults = [
+                '_controller' => 'CQRS\Controller\CommandController::performCommand',
+                '_command' => $commandClass,
+                ...$commandAnnotation->getDefaults(),
+            ];
+            $route = new Route(
+                $commandAnnotation->getPath(),
+                $defaults,
+                $commandAnnotation->getRequirements(),
+                $commandAnnotation->getOptions(),
+                $commandAnnotation->getHost(),
+                $commandAnnotation->getSchemes(),
+                $commandAnnotation->getMethods(),
+                $commandAnnotation->getCondition(),
+            );
             $routes->add(
-                $this->getRouteNameFromClassName($commandClass),
+                $commandAnnotation->getName() ?? $this->getRouteNameFromClassName($commandClass),
                 $route,
+                $commandAnnotation->getPriority(),
             );
         }
 

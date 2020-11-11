@@ -6,9 +6,10 @@ services:
         resource: '../../../src/'
         exclude:
             - '../../../src/DependencyInjection/'
-            - '../../../src/Entity/'
-            - '../../../src/Kernel.php'
             - '../../../src/Tests/'
+
+    CQRS\Controller\CommandController:
+        tags: [controller.service_arguments]
 
     CQRS\Routing\CommandsLoader:
         tags: [routing.loader]

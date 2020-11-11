@@ -5,7 +5,7 @@ namespace CQRS\DependencyInjection;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use CQRS\Command\CommandInterface;
-use CQRS\Inventory\CommandsInventory;
+use CQRS\Command\CommandHandlerInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
@@ -21,5 +21,7 @@ class CQRSExtension extends Extension
 
         $container->registerForAutoconfiguration(CommandInterface::class)
             ->addTag('cqrs.command');
+        $container->registerForAutoconfiguration(CommandHandlerInterface::class)
+            ->addTag('messenger.message_handler', ['bus' => 'command.bus']);
     }
 }

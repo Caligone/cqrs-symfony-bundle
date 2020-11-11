@@ -2,43 +2,8 @@
 
 namespace CQRS\Inventory;
 
-class CommandsInventory implements \Iterator, \Countable
+
+class CommandsInventory extends AbstractInventory
 {
-    private int $position = 0;
-    private array $inventory = [];
-
-    public function add(string $className)
-    {
-        $this->inventory[] = $className;
-    }
-
-    public function rewind()
-    {
-        $this->position = 0;
-    }
-
-    public function current()
-    {
-        return $this->inventory[$this->position];
-    }
-
-    public function key()
-    {
-        return $this->position;
-    }
-
-    public function next()
-    {
-        ++$this->position;
-    }
-
-    public function valid()
-    {
-        return isset($this->inventory[$this->position]);
-    }
-
-    public function count()
-    {
-        return count($this->inventory);
-    }
+    
 }

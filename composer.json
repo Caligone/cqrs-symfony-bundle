@@ -21,6 +21,7 @@
         "doctrine/annotations": "^1.11",
         "symfony/dependency-injection": "^5.1",
         "symfony/messenger": "^5.1",
-        "symfony/config": "^5.1"
+        "symfony/config": "^5.1",
+        "symfony/serializer": "^5.1"
     }
 }

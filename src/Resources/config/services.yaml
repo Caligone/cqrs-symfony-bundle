@@ -6,10 +6,17 @@ services:
         resource: '../../../src/'
         exclude:
             - '../../../src/DependencyInjection/'
+            - '../../../src/Helpers/'
             - '../../../src/Tests/'
 
     CQRS\Controller\CommandController:
         tags: [controller.service_arguments]
 
+    CQRS\Controller\QueryController:
+        tags: [controller.service_arguments]
+
     CQRS\Routing\CommandsLoader:
+        tags: [routing.loader]
+
+    CQRS\Routing\QueriesLoader:
         tags: [routing.loader]

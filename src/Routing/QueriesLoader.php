@@ -3,18 +3,18 @@
 namespace CQRS\Routing;
 
 use CQRS\Annotation\AbstractAnnotation;
-use CQRS\Annotation\Command;
-use CQRS\Inventory\CommandsInventory;
+use CQRS\Annotation\Query;
+use CQRS\Inventory\QueriesInventory;
 use Doctrine\Common\Annotations\AnnotationReader;
 
-class CommandsLoader extends AbstractLoader
+class QueriesLoader extends AbstractLoader
 {
-    protected const LOADER_NAME = 'commands';
-    protected const ROUTE_NAME_PREFIX = 'cqrs_command_';
-    protected const CONTROLLER_PATH = 'CQRS\Controller\CommandController::performCommand';
-    protected const ANNOTATION_CLASS = Command::class;
+    protected const LOADER_NAME = 'queries';
+    protected const ROUTE_NAME_PREFIX = 'cqrs_query_';
+    protected const CONTROLLER_PATH = 'CQRS\Controller\QueryController::performQuery';
+    protected const ANNOTATION_CLASS = Query::class;
 
-    public function __construct(CommandsInventory $inventory)
+    public function __construct(QueriesInventory $inventory)
     {
         parent::__construct($inventory);
         $this->annotationReader = new AnnotationReader();
@@ -23,14 +23,14 @@ class CommandsLoader extends AbstractLoader
     protected static function getAdditionnalDefaults(AbstractAnnotation $annotation, string $annotedClass): array
     {
         return [
-            '_command' => $annotedClass,
+            '_query' => $annotedClass,
         ];
     }
 
     protected static function getIntentNameFromClassName(string $longClassName)
     {
         $baseIntentName = parent::getIntentNameFromClassName($longClassName);
-        $intentName = preg_replace('/_command$/', '', $baseIntentName);
+        $intentName = preg_replace('/_query/', '', $baseIntentName);
         return $intentName;
     }
 }

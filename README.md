@@ -1,5 +1,7 @@
 # CQRS Symfony bundle
 
+![Continuous Integration](https://github.com/Caligone/cqrs-symfony-bundle/workflows/Continuous%20Integration/badge.svg)
+
 :warning: Early stage / Far away from production-ready bundle :warning:
 
 ## Installation

@@ -4,8 +4,8 @@ namespace CQRS\Annotation;
 
 /**
  * Abstract annotation class for @Command() and @Query()
- * Duplicate of Symfony\Component\Routing\Annotation\Route
- * 
+ * Duplicate of Symfony\Component\Routing\Annotation\Route.
+ *
  * @Annotation
  */
 abstract class AbstractAnnotation

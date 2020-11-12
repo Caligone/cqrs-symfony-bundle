@@ -3,8 +3,8 @@
 namespace CQRS\Annotation;
 
 /**
- * Annotation class for @Query()
- * 
+ * Annotation class for @Query().
+ *
  * @Annotation
  */
 class Query extends AbstractAnnotation

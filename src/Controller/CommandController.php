@@ -29,6 +29,7 @@ class CommandController extends AbstractController
             $commandClass,
         );
         $this->commandBus->dispatch($command);
+
         return new JsonResponse([
             'identifier' => $command->getIdentifier(),
         ], 202);

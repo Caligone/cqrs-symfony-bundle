@@ -2,14 +2,14 @@
 
 namespace CQRS\DependencyInjection;
 
+use CQRS\Command\CommandHandlerInterface;
+use CQRS\Command\CommandInterface;
+use CQRS\Event\EventHandlerInterface;
+use CQRS\Query\QueryHandlerInterface;
+use CQRS\Query\QueryInterface;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
-use CQRS\Command\CommandInterface;
-use CQRS\Command\CommandHandlerInterface;
-use CQRS\Query\QueryInterface;
-use CQRS\Query\QueryHandlerInterface;
-use CQRS\Event\EventHandlerInterface;
-use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class CQRSExtension extends Extension

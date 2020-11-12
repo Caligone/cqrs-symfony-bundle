@@ -39,6 +39,7 @@ class QueryController extends AbstractController
         if (!($handledStamp instanceof HandledStamp)) {
             throw new \RuntimeException('Command not handled');
         }
+
         return new JsonResponse(
             $this->normalizer->normalize($handledStamp->getResult()),
             200,

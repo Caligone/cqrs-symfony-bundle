@@ -28,7 +28,7 @@ jobs:
 
     - name: Install dependencies
       if: steps.composer-cache.outputs.cache-hit != 'true'
-      run: composer install --prefer-dist --no-progress --no-sugges
+      run: composer install --prefer-dist --no-progress --no-suggest
 
     - name: Run lint
       run: composer run-script lint

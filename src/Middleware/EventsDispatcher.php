@@ -15,7 +15,7 @@ class EventsDispatcher implements MiddlewareInterface
 
     public function __construct(MessageBusInterface $eventBus)
     {
-        $this->eventBus = $eventBus;   
+        $this->eventBus = $eventBus;
     }
 
     public function handle(Envelope $envelope, StackInterface $stack): Envelope
@@ -32,6 +32,7 @@ class EventsDispatcher implements MiddlewareInterface
         foreach ($result->getEvents() as $event) {
             $this->eventBus->dispatch($event);
         }
+
         return $envelope;
     }
 }

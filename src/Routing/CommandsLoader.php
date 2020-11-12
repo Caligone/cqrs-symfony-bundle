@@ -31,6 +31,7 @@ class CommandsLoader extends AbstractLoader
     {
         $baseIntentName = parent::getIntentNameFromClassName($longClassName);
         $intentName = preg_replace('/_command$/', '', $baseIntentName);
+
         return $intentName;
     }
 }

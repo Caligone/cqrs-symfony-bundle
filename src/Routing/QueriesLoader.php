@@ -31,6 +31,7 @@ class QueriesLoader extends AbstractLoader
     {
         $baseIntentName = parent::getIntentNameFromClassName($longClassName);
         $intentName = preg_replace('/_query/', '', $baseIntentName);
+
         return $intentName;
     }
 }

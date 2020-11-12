@@ -3,8 +3,8 @@
 namespace CQRS\Annotation;
 
 /**
- * Annotation class for @Command()
- * 
+ * Annotation class for @Command().
+ *
  * @Annotation
  */
 class Command extends AbstractAnnotation

@@ -4,5 +4,4 @@ namespace CQRS\Event;
 
 interface EventInterface
 {
-
 }

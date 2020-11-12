@@ -3,7 +3,7 @@
 namespace CQRS\Helpers;
 
 /**
- * Helper providing \Traversable and \Countable implementation
+ * Helper providing \Traversable and \Countable implementation.
  */
 trait InventoryTrait
 {
@@ -42,6 +42,6 @@ trait InventoryTrait
 
     public function count()
     {
-        return count($this->inventory);
+        return \count($this->inventory);
     }
 }

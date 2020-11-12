@@ -4,5 +4,4 @@ namespace CQRS\Query;
 
 interface QueryInterface
 {
-
 }

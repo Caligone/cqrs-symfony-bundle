@@ -2,9 +2,9 @@
 
 namespace CQRS\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use CQRS\Inventory\CommandsInventory;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class CommandsPass implements CompilerPassInterface
 {

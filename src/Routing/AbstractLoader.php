@@ -25,7 +25,7 @@ abstract class AbstractLoader extends Loader
         $this->annotationReader = new AnnotationReader();
     }
 
-    protected abstract static function getAdditionnalDefaults(AbstractAnnotation $annotation, string $annotedClass): array;
+    abstract protected static function getAdditionnalDefaults(AbstractAnnotation $annotation, string $annotedClass): array;
 
     public function load($resource, string $type = null)
     {
@@ -35,7 +35,7 @@ abstract class AbstractLoader extends Loader
 
         $routes = new RouteCollection();
 
-        foreach($this->inventory as $class) {
+        foreach ($this->inventory as $class) {
             $reflectionClass = new \ReflectionClass($class);
             $annotation = $this->annotationReader->getClassAnnotation($reflectionClass, static::ANNOTATION_CLASS);
             if (!$annotation) {
@@ -58,7 +58,7 @@ abstract class AbstractLoader extends Loader
                 $annotation->getCondition(),
             );
             $routes->add(
-                $annotation->getName() ?? static::ROUTE_NAME_PREFIX . $intentName,
+                $annotation->getName() ?? static::ROUTE_NAME_PREFIX.$intentName,
                 $route,
                 $annotation->getPriority(),
             );

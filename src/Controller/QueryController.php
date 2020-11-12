@@ -36,6 +36,9 @@ class QueryController extends AbstractController
         $envelope = $this->queryBus->dispatch($query);
         $handledStamp = $envelope->last(HandledStamp::class);
 
+        if (!($handledStamp instanceof HandledStamp)) {
+            throw new \RuntimeException('Command not handled');
+        }
         return new JsonResponse(
             $this->normalizer->normalize($handledStamp->getResult()),
             200,

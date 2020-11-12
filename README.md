@@ -50,6 +50,7 @@ framework:
             command.bus:
                 middleware:
                     - validation
+                    - CQRS\Middleware\EventsDispatcher
             query.bus:
                 middleware:
                     - validation
@@ -61,4 +62,5 @@ framework:
         routing:
             CQRS\Command\CommandInterface: sync
             CQRS\Query\QueryInterface: sync
+            CQRS\Event\EventInterface: sync
 ```

@@ -8,6 +8,7 @@ use CQRS\Command\CommandInterface;
 use CQRS\Command\CommandHandlerInterface;
 use CQRS\Query\QueryInterface;
 use CQRS\Query\QueryHandlerInterface;
+use CQRS\Event\EventHandlerInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
@@ -25,9 +26,13 @@ class CQRSExtension extends Extension
             ->addTag('cqrs.command');
         $container->registerForAutoconfiguration(QueryInterface::class)
             ->addTag('cqrs.query');
+        $container->registerForAutoconfiguration(EventInterface::class)
+            ->addTag('cqrs.event');
         $container->registerForAutoconfiguration(CommandHandlerInterface::class)
             ->addTag('messenger.message_handler', ['bus' => 'command.bus']);
         $container->registerForAutoconfiguration(QueryHandlerInterface::class)
             ->addTag('messenger.message_handler', ['bus' => 'query.bus']);
+        $container->registerForAutoconfiguration(EventHandlerInterface::class)
+            ->addTag('messenger.message_handler', ['bus' => 'event.bus']);
     }
 }

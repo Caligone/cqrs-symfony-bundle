@@ -2,6 +2,10 @@
     "name": "caligone/symfony-cqrs",
     "type": "symfony-bundle",
     "description": "Symfony CQRS Bundle",
+    "scripts": {
+        "lint": "php-cs-fixer fix --dry-run",
+        "lint:fix": "php-cs-fixer fix"
+    },
     "autoload": {
         "psr-4": {
             "CQRS\\": "src/"
@@ -23,5 +27,8 @@
         "symfony/messenger": "^5.1",
         "symfony/config": "^5.1",
         "symfony/serializer": "^5.1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16"
     }
 }
